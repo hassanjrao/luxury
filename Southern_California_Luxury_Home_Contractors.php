@@ -14,7 +14,7 @@
   <nav class="h-16 md:w-full w-full mx-auto flex items-center justify-between sticky top-0 z-10 px-4">
     <h1 class="uppercase font-bold md:text-2xl w-full text-xs" id="topBar">
 
-      <a onclick="scrollToTop()" class="cursor-pointer">Modern Luxury Builders</a>
+      <a href="./index.php" class="cursor-pointer">Modern Luxury Builders</a>
     </h1>
     <div class="flex gap-4 items-center justify-center" id="menu">
       <a href="https://www.tiktok.com/explore">
