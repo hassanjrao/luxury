@@ -8,10 +8,11 @@ $phone=$_POST['phone'];
 $email=$_POST['email'];
 $message=$_POST['message'];
 
-$to = "hassanjrao@gmail.com";
+$to = "AlexLluch3@gmail.com";
+// $to='hassanjrao@gmail.com';
 $subject = "Contact Form";
 $txt = "Name: ".$name."\nPhone: ".$phone."\nEmail: ".$email."\nMessage: ".$message;
-$headers = "From: ".$email;
+$headers = "From: $to";
 
 
 $mail=mail($to,$subject,$txt,$headers);
