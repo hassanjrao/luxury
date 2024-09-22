@@ -64,7 +64,7 @@
     <div class="mb-6">
       <!-- Image Placeholder -->
 
-      <img src="./images/inspiration/3.JPG" alt="About Us Image" class="w-full h-auto object-cover" />
+      <img src="./images/inspiration/3.jpg" alt="About Us Image" class="w-full h-auto object-cover" />
 
     </div>
 
