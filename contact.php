@@ -8,6 +8,8 @@ $phone=$_POST['phone'];
 $email=$_POST['email'];
 $message=$_POST['message'];
 
+$page=$_POST['page'];
+
 $to = "AlexLluch3@gmail.com";
 // $to='hassanjrao@gmail.com';
 $subject = "Contact Form";
@@ -20,4 +22,4 @@ $mail=mail($to,$subject,$txt,$headers);
 
 
 
-header("Location: index.php?mailsend#contact");
+header("Location: $page?mailsend#contact");

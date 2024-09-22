@@ -294,7 +294,7 @@
   <div class="w-[80%] text-start mt-5 mx-auto">
     <h2 class="text-black font-bold text-xl">Modern Luxury Builders</h2>
     <p>
-      We specialize in designing and building the most modern and luxurious homes in Southern California. Our designs merge cutting-edge designs with unparalleled elegance, delivering living spaces that are both stunning and functional. We are dedicated to crafting homes that epitomize sophistication, comfort, and innovation, creating residences that not only meet but exceed the highest standards of luxury and style. 
+      We specialize in designing and building the most modern and luxurious homes in Southern California. Our designs merge cutting-edge designs with unparalleled elegance, delivering living spaces that are both stunning and functional. We are dedicated to crafting homes that epitomize sophistication, comfort, and innovation, creating residences that not only meet but exceed the highest standards of luxury and style.
     </p>
   </div>
   <div class="w-full mx-auto mt-12">
@@ -563,7 +563,7 @@
         An Architectural Masterpiece
       </h1>
       <p>
-        Our latest project, Villa Fabulosa, continues our tradition of blending luxury with innovation.  Inspired by the chic allure of Ibiza-style homes, this magnificent home offers unparalleled luxury, amenities, and entertainment areas.  This exquisite home very quickly became the talk of the town and the premier short-term rental destination in Temecula Wine Country. It offers guests an unmatched luxury experience. Villa Fabulosa is a cornerstone in our mission to redefine sophisticated living across Southern California.
+        Our latest project, Villa Fabulosa, continues our tradition of blending luxury with innovation. Inspired by the chic allure of Ibiza-style homes, this magnificent home offers unparalleled luxury, amenities, and entertainment areas. This exquisite home very quickly became the talk of the town and the premier short-term rental destination in Temecula Wine Country. It offers guests an unmatched luxury experience. Villa Fabulosa is a cornerstone in our mission to redefine sophisticated living across Southern California.
 
       </p>
     </div>
@@ -676,7 +676,7 @@
 
       </h1>
       <p>
-        Our upcoming project, Villa Fantastica, will set a new standard of luxury living. Set to break ground in November 2024, this stunning home will feature breathtaking 360-degree views, six large bedrooms, 5.5 baths, a spacious kitchen with a large pantry, a four-car garage, two decks, and a third-story bar with a spacious rooftop. Additionally, it will include a private theater for an exceptional entertainment experience. 
+        Our upcoming project, Villa Fantastica, will set a new standard of luxury living. Set to break ground in November 2024, this stunning home will feature breathtaking 360-degree views, six large bedrooms, 5.5 baths, a spacious kitchen with a large pantry, a four-car garage, two decks, and a third-story bar with a spacious rooftop. Additionally, it will include a private theater for an exceptional entertainment experience.
 
       </p>
     </div>
@@ -791,7 +791,7 @@
 
       <!-- Image Section with VR Link -->
       <div class="mb-8">
-        <a href="https://vr.justeasy.cn/view/1c7d2n05f98072e0-1725530309.html" target="_blank">
+        <a href="https://vr.justeasy.cn/view/1c7d2n05f98072e0-1725530309.php" target="_blank">
           <img src="./images/image.png" alt="VR Preview" class="w-full h-98 object-cover shadow-lg" />
         </a>
       </div>
@@ -835,7 +835,7 @@
     <div class="container mx-auto px-4 py-8">
       <h2 class="text-black font-bold text-xl">Our Mission</h2>
       <p class="text-lg mb-8 leading-relaxed">
-        Modern Luxury Builders is redefining luxury living with a unique and unparalleled approach to designing and constructing exquisite homes.  What sets us apart is our partnership with leading international architects, designers, and manufacturers to seamlessly integrate innovative design concepts and cutting-edge technologies and products from around the world.   This global collaboration ensures that each home we create is not only a masterpiece of modern luxury but also a testament to the highest standards of design and craftsmanship from around the globe.
+        Modern Luxury Builders is redefining luxury living with a unique and unparalleled approach to designing and constructing exquisite homes. What sets us apart is our partnership with leading international architects, designers, and manufacturers to seamlessly integrate innovative design concepts and cutting-edge technologies and products from around the world. This global collaboration ensures that each home we create is not only a masterpiece of modern luxury but also a testament to the highest standards of design and craftsmanship from around the globe.
 
 
       </p>
@@ -896,12 +896,12 @@
       <div class="w-full max-w-4xl bg-gray-100 p-8 rounded-lg shadow-lg mx-auto">
 
         <!-- email sent message -->
-        <?php if(isset($_GET['mailsend'])) { ?>
-        <div class="text-green-500 text-center bg-green-100 border border-green-200 px-4 py-3 rounded relative"
-          role="alert">
-          <strong class="font-bold">Message sent successfully!</strong>
-          <span class="block sm:inline">We will get back to you shortly.</span>
-        </div>
+        <?php if (isset($_GET['mailsend'])) { ?>
+          <div class="text-green-500 text-center bg-green-100 border border-green-200 px-4 py-3 rounded relative"
+            role="alert">
+            <strong class="font-bold">Message sent successfully!</strong>
+            <span class="block sm:inline">We will get back to you shortly.</span>
+          </div>
         <?php } ?>
 
         <h2 class="text-center text-gray-600 mb-8">
@@ -910,10 +910,13 @@
         </h2>
 
         <form id="contact-form" action="./contact.php" method="POST">
+
+        <input type="hidden" name="page" value="index.php">
+          
           <!-- Name Input -->
           <div class="mb-4">
             <input type="text" name="name" id="name" placeholder="Name"
-            
+
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
               required />
           </div>
@@ -929,7 +932,7 @@
           </div>
 
           <!-- Dropdown (General Inquiry) -->
-          
+
           <!-- Message Input -->
           <div class="mb-6">
             <textarea name="message" id="message" placeholder="Message" rows="5"
@@ -940,7 +943,7 @@
           <!-- Submit Button -->
           <div class="text-center">
             <button type="submit"
-            name="submit"
+              name="submit"
               class="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-950 transition duration-300">
               SUBMIT
             </button>
@@ -952,59 +955,59 @@
     <footer class="mt-10 text-center text-gray-600 mb-4">
       <p class="text-sm mb-2">Related Links:</p>
       <ul class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:flex-nowrap md:space-x-4 text-sm">
-          <li class="w-full md:w-auto">
-              <a href="./Custom_Home_Design_and_Construction_Services.html" class="block text-indigo-600 hover:underline">
-                  Custom Home Design and Construction Services
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Exclusive_Home_Building_Contractors_in_California.html" class="block text-indigo-600 hover:underline">
-                  Exclusive Home Building Contractors in California
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Expert_Luxury_HomeBuilders_and_Designers.html" class="block text-indigo-600 hover:underline">
-                  Expert Luxury Home Builders and Designers
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./High_End_Residential_Architects_and_Builders.html" class="block text-indigo-600 hover:underline">
-                  High-End Residential Architects and Builders
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Innovative_Home_Design_and_Building_Solutions.html" class="block text-indigo-600 hover:underline">
-                  Innovative Home Design and Building Solutions
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Luxury_Home_Designers_Southern_California.html" class="block text-indigo-600 hover:underline">
-                  Luxury Home Designers in Southern California
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Modern_Luxury_Home_Building.html" class="block text-indigo-600 hover:underline">
-                  Modern Luxury Home Building
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Modern_Luxury_Home_Renovations_and_Design.html" class="block text-indigo-600 hover:underline">
-                  Modern Luxury Home Renovations and Design
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Premium_Home_Design_and_Construction_Experts.html" class="block text-indigo-600 hover:underline">
-                  Premium Home Design and Construction Experts
-              </a>
-          </li>
-          <li class="w-full md:w-auto">
-              <a href="./Southern_California_Luxury_Home_Contractors.html" class="block text-indigo-600 hover:underline">
-                  Southern California Luxury Home Contractors
-              </a>
-          </li>
+        <li class="w-full md:w-auto">
+          <a href="./Custom_Home_Design_and_Construction_Services.php" class="block text-indigo-600 hover:underline">
+            Custom Home Design and Construction Services
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Exclusive_Home_Building_Contractors_in_California.php" class="block text-indigo-600 hover:underline">
+            Exclusive Home Building Contractors in California
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Expert_Luxury_HomeBuilders_and_Designers.php" class="block text-indigo-600 hover:underline">
+            Expert Luxury Home Builders and Designers
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./High_End_Residential_Architects_and_Builders.php" class="block text-indigo-600 hover:underline">
+            High-End Residential Architects and Builders
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Innovative_Home_Design_and_Building_Solutions.php" class="block text-indigo-600 hover:underline">
+            Innovative Home Design and Building Solutions
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Luxury_Home_Designers_Southern_California.php" class="block text-indigo-600 hover:underline">
+            Luxury Home Designers in Southern California
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Modern_Luxury_Home_Building.php" class="block text-indigo-600 hover:underline">
+            Modern Luxury Home Building
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Modern_Luxury_Home_Renovations_and_Design.php" class="block text-indigo-600 hover:underline">
+            Modern Luxury Home Renovations and Design
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Premium_Home_Design_and_Construction_Experts.php" class="block text-indigo-600 hover:underline">
+            Premium Home Design and Construction Experts
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a href="./Southern_California_Luxury_Home_Contractors.php" class="block text-indigo-600 hover:underline">
+            Southern California Luxury Home Contractors
+          </a>
+        </li>
       </ul>
-  </footer>
-  
+    </footer>
+
   </div>
 
   <!-- Lightbox Modal -->
@@ -1038,7 +1041,7 @@
     // Lightbox functionality
 
     document.querySelectorAll(".swiper-slide img").forEach((img) => {
-      img.addEventListener("click", function () {
+      img.addEventListener("click", function() {
         const lightbox = document.getElementById("lightbox");
         const lightboxImage = document.getElementById("lightbox-image");
         lightboxImage.src = this.getAttribute("data-large");
@@ -1060,7 +1063,7 @@
       lightbox.classList.remove("active"); // Close the modal
     }
 
-    
+
     // Initialize Swiper
     var inspirationSwiper = new Swiper(".inspirationSwiper", {
       loop: true,
@@ -1091,7 +1094,7 @@
 
     // Lightbox functionality.
     document.querySelectorAll(".swiper-slide img").forEach((img) => {
-      img.addEventListener("click", function () {
+      img.addEventListener("click", function() {
         const lightbox = document.getElementById("inspiration-lightbox");
         const lightboxImage = document.getElementById(
           "inspiration-lightbox-image"
@@ -1106,7 +1109,7 @@
       lightbox.classList.remove("active");
     }
 
-    
+
 
     const title = document.getElementById("animatedTitle");
 
@@ -1127,7 +1130,6 @@
         behavior: 'smooth' // This makes the scroll smooth
       });
     }
-
   </script>
 </body>
 

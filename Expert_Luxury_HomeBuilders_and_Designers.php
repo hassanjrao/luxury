@@ -164,85 +164,127 @@
        <!-- Contact Us Section -->
 
         <!-- Contact Form Section -->
-        <div class="flex items-center justify-center mt-10">
-            <div class="w-full max-w-4xl bg-gray-100 p-8 rounded-lg shadow-lg mx-auto mt-10"
-                style="margin-left: 20%; margin-right: 20%">
-                <h2 class="text-center text-gray-600 mb-8">
-                    Send us a message using the form below and someone from our team
-                    will get back to you shortly.
-                </h2>
-                <form id="contact-form">
-                    <!-- Name Input -->
-                    <div class="mb-4">
-                        <input type="text" name="name" id="name" placeholder="Name"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                            required />
-                    </div>
-                    <!-- Phone and Email Input (Side by Side) -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <input type="tel" name="phone" id="phone" placeholder="Phone Number"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                            required />
-                        <input type="email" name="email" id="email" placeholder="Email Address"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                            required />
-                    </div>
-                    
-                    <!-- Message Input -->
-                    <div class="mb-6">
-                        <textarea name="message" id="message" placeholder="Message" rows="5"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                            required></textarea>
-                    </div>
-                    <!-- Submit Button -->
-                    <div class="text-center">
-                        <button type="submit"
-                            class="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-950 transition duration-300">
-                            SUBMIT
-                        </button>
-                    </div>
-                </form>
+        <div class="flex items-center justify-center" id="contact">
+
+
+            <div class="w-full max-w-4xl bg-gray-100 p-8 rounded-lg shadow-lg mx-auto">
+      
+              <!-- email sent message -->
+              <?php if (isset($_GET['mailsend'])) { ?>
+                <div class="text-green-500 text-center bg-green-100 border border-green-200 px-4 py-3 rounded relative"
+                  role="alert">
+                  <strong class="font-bold">Message sent successfully!</strong>
+                  <span class="block sm:inline">We will get back to you shortly.</span>
+                </div>
+              <?php } ?>
+      
+              <h2 class="text-center text-gray-600 mb-8">
+                Send us a message using the form below and someone from our team
+                will get back to you shortly.
+              </h2>
+      
+              <form id="contact-form" action="./contact.php" method="POST">
+
+              <input type="hidden" name="page" value="Expert_Luxury_HomeBuilders_and_Designers.php">
+              
+
+                <!-- Name Input -->
+                <div class="mb-4">
+                  <input type="text" name="name" id="name" placeholder="Name"
+      
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                    required />
+                </div>
+      
+                <!-- Phone and Email Input (Side by Side) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <input type="tel" name="phone" id="phone" placeholder="Phone Number"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                    required />
+                  <input type="email" name="email" id="email" placeholder="Email Address"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                    required />
+                </div>
+      
+                <!-- Dropdown (General Inquiry) -->
+      
+                <!-- Message Input -->
+                <div class="mb-6">
+                  <textarea name="message" id="message" placeholder="Message" rows="5"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                    required></textarea>
+                </div>
+      
+                <!-- Submit Button -->
+                <div class="text-center">
+                  <button type="submit"
+                    name="submit"
+                    class="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-950 transition duration-300">
+                    SUBMIT
+                  </button>
+                </div>
+              </form>
             </div>
-        </div>
+          </div>
     </main>
 
     <!-- Footer Section -->
     <footer class="mt-10 text-center text-gray-600 mb-4">
         <p class="text-sm mb-2">Related Links:</p>
-        <ul class="flex justify-center space-x-4 text-sm">
-            <li>
-                <a href="./Custom_Home_Design_and_Construction_Services.html" class="text-indigo-600 hover:underline">Custom Home Design and Construction Services</a>
-            </li>
-            <li>
-                <a href="./Exclusive_Home_Building_Contractors_in_California.html" class="text-indigo-600 hover:underline">Exclusive Home Building Contractors in California</a>
-            </li>
-            <li>
-                <a href="./High_End_Residential_Architects_and_Builders.html" class="text-indigo-600 hover:underline">High-End Residential Architects and Builders</a>
-            </li>
-
-            <li>
-                <a href="./Innovative_Home_Design_and_Building_Solutions.html" class="text-indigo-600 hover:underline">Innovative Home Design and Building Solutions</a>
-            </li>
-            <li>
-                <a href="./Luxury_Home_Designers_Southern_California.html" class="text-indigo-600 hover:underline">Luxury Home Designers in Southern California
-                </a>
-            </li>
-            <li>
-                <a href="./Modern_Luxury_Home_Building.html" class="text-indigo-600 hover:underline">Modern Luxury Home Building</a>
-            </li>
-
-            <li>
-                <a href="./Modern_Luxury_Home_Renovations_and_Design.html" class="text-indigo-600 hover:underline">Modern Luxury Home Renovations and Design</a>
-            </li>
-            <li>
-                <a href="./Premium_Home_Design_and_Construction_Experts.html" class="text-indigo-600 hover:underline">Premium Home Design and Construction Experts</a>
-            </li>
-            <li>
-                <a href="./Southern_California_Luxury_Home_Contractors.html" class="text-indigo-600 hover:underline">Southern California Luxury Home Contractors</a>
-            </li>
-            
+        <ul class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:flex-nowrap md:space-x-4 text-sm">
+          <li class="w-full md:w-auto">
+            <a href="./Custom_Home_Design_and_Construction_Services.php" class="block text-indigo-600 hover:underline">
+              Custom Home Design and Construction Services
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Exclusive_Home_Building_Contractors_in_California.php" class="block text-indigo-600 hover:underline">
+              Exclusive Home Building Contractors in California
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Expert_Luxury_HomeBuilders_and_Designers.php" class="block text-indigo-600 hover:underline">
+              Expert Luxury Home Builders and Designers
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./High_End_Residential_Architects_and_Builders.php" class="block text-indigo-600 hover:underline">
+              High-End Residential Architects and Builders
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Innovative_Home_Design_and_Building_Solutions.php" class="block text-indigo-600 hover:underline">
+              Innovative Home Design and Building Solutions
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Luxury_Home_Designers_Southern_California.php" class="block text-indigo-600 hover:underline">
+              Luxury Home Designers in Southern California
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Modern_Luxury_Home_Building.php" class="block text-indigo-600 hover:underline">
+              Modern Luxury Home Building
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Modern_Luxury_Home_Renovations_and_Design.php" class="block text-indigo-600 hover:underline">
+              Modern Luxury Home Renovations and Design
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Premium_Home_Design_and_Construction_Experts.php" class="block text-indigo-600 hover:underline">
+              Premium Home Design and Construction Experts
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a href="./Southern_California_Luxury_Home_Contractors.php" class="block text-indigo-600 hover:underline">
+              Southern California Luxury Home Contractors
+            </a>
+          </li>
         </ul>
-    </footer>
+      </footer>
+    
 
 
     <script src="./script.js"></script>
