@@ -13,7 +13,10 @@ $subject = "Contact Form";
 $txt = "Name: ".$name."\nPhone: ".$phone."\nEmail: ".$email."\nMessage: ".$message;
 $headers = "From: ".$email;
 
+
 $mail=mail($to,$subject,$txt,$headers);
 
 
-header("Location: index.html?mailsend#contact");
+
+
+header("Location: index.php?mailsend#contact");

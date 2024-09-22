@@ -894,6 +894,16 @@
 
 
       <div class="w-full max-w-4xl bg-gray-100 p-8 rounded-lg shadow-lg mx-auto">
+
+        <!-- email sent message -->
+        <?php if(isset($_GET['mailsend'])) { ?>
+        <div class="text-green-500 text-center bg-green-100 border border-green-200 px-4 py-3 rounded relative"
+          role="alert">
+          <strong class="font-bold">Message sent successfully!</strong>
+          <span class="block sm:inline">We will get back to you shortly.</span>
+        </div>
+        <?php } ?>
+
         <h2 class="text-center text-gray-600 mb-8">
           Send us a message using the form below and someone from our team
           will get back to you shortly.
