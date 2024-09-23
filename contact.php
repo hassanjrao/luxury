@@ -32,7 +32,7 @@ $mail->Password   = 'BPAWFnx4jmyjcoV4wxZJfGp7psMuUVqRY0dh2TbGip+q';             
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
 $mail->Port       = 465;   
 
-$to = "AlexLluch3@gmail.com";
+$to = "info@modernluxurybuilders.com";
 // $to='hassanjrao@gmail.com';
 $subject = "Contact Form";
 $txt = "Name: ".$name."\nPhone: ".$phone."\nEmail: ".$email."\nMessage: ".$message;

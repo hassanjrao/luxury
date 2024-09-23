@@ -234,7 +234,7 @@
 
 
     <div class="w-1/2 mx-auto mt-10">
-      <video width="720" height="480" controls>
+      <video width="720" id="videoFab" height="480" controls poster="./images/villa-fabulosa/thumb.png">
         <source src="./images/villa-fabulosa/video.mp4" type="video/mp4" />
       </video>
     </div>
@@ -271,7 +271,7 @@
     </div>
 
     <div class="w-1/2 mx-auto mt-10">
-      <video width="720" height="480" controls>
+      <video width="720" height="480" controls id="videoEsc">
         <source src="./videos/video-esc.mp4" type="video/mp4" />
       </video>
     </div>
@@ -590,6 +590,9 @@
 
   <!-- JavaScript to handle Swiper and Lightbox -->
   <script>
+    document.getElementById('videoFab').volume = 0.15;
+    document.getElementById('videoEsc').volume = 0.15;
+
     // Initialize Swiper
     var swiper = new Swiper(".mySwiper", {
       loop: true,
@@ -636,7 +639,7 @@
     lightbox.option({
       'resizeDuration': 50,
       'wrapAround': true,
-      'alwaysShowNavOnTouchDevices':true,
+      'alwaysShowNavOnTouchDevices': true,
       'fadeDuration': 200,
     });
 
