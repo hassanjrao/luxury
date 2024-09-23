@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./lightbox/src/css/lightbox.css" rel="stylesheet" />
   <title>Modern Luxury Building</title>
   <style>
     .swiper-slide img {
@@ -19,44 +20,7 @@
     }
 
     /* Lightbox styles */
-    .lightbox {
-      position: fixed;
-      z-index: 100;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s, opacity 0.5s;
-    }
 
-    .inspiration-lightbox-close {}
-
-    .lightbox img {
-      width: 80%;
-      max-width: 1000px;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .lightbox.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
 
     /* Smaller arrow button styles */
     .swiper-button-next,
@@ -90,42 +54,7 @@
       border: 4px solid black;
     }
 
-    /* Lightbox styles */
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s, opacity 0.5s;
-    }
 
-    .lightbox img {
-      width: 80%;
-      max-width: 1000px;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .lightbox.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
 
     /* Styling for Swiper slides */
     .swiper-slide {
@@ -162,63 +91,6 @@
     .swiper-button-prev::after {
       font-size: 16px;
       color: white;
-    }
-
-    /* Lightbox styles */
-    .lightbox {
-      position: fixed;
-      z-index: 100;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s, opacity 0.5s;
-    }
-
-    .lightbox img {
-      width: 80%;
-      max-width: 1000px;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .lightbox.active {
-      visibility: visible;
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    /* .lightbox-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 2rem;
-        color: white;
-        cursor: pointer;
-      } */
-
-    /* Close button */
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      z-index: 10;
-      /* Ensure close button is above the image */
-    }
-
-    /* Fade-out effect for smooth closing */
-    .lightbox img,
-    .lightbox-close {
-      transition: opacity 0.3s ease;
     }
 
     .title {
@@ -286,7 +158,7 @@
       Your browser does not support the video tag.
     </video>
     <h1 id="animatedTitle"
-      class="title text-stroke w-full px-4 uppercase font-bold tracking-wider text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-8xl absolute text-center md:bottom-24 bottom-5">
+      class="hidden title text-stroke w-full px-4 uppercase font-bold tracking-wider text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-8xl absolute text-center md:bottom-24 bottom-5">
       Modern Luxury Builders
     </h1>
   </div>
@@ -310,245 +182,37 @@
       </div>
       <p class="italic text-xl">Villa Fabulosa</p>
     </div>
+
+    <?php
+
+    // get all images from the directory images/villa-fabulosa
+
+    $fabulosaImages = glob('./images/villa-fabulosa/*.{jpg,png,jpeg,JPG}', GLOB_BRACE);
+    $vistaImages = glob('./images/villa-vista/*.{jpg,png,jpeg,JPG}', GLOB_BRACE);
+    $inspirationImages = glob('./images/inspiration/*.{jpg,png,jpeg,JPG}', GLOB_BRACE);
+
+    ?>
+
     <div class="w-[90%] mx-auto">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0001.jpg" alt="Villa Fabulosa 1" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0001.jpg" />
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0002.png" alt="Villa Fabulosa 2" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0002.png" />
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0002a.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0002a.JPG" />
-          </div>
 
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0003.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0003.JPG" />
-          </div>
+          <?php
 
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0004.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0004.JPG" />
-          </div>
+          foreach ($fabulosaImages as $ind => $image) {
 
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0005.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0005.JPG" />
-          </div>
+          ?>
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
 
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0006.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0006.JPG" />
-          </div>
+              <a href="<?php echo $image ?>" data-lightbox="image-fabulosa">
+                <img src="<?php echo $image ?>" alt="Villa Fabulosa 1" class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover" />
+              </a>
+            </div>
 
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0007.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0007.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0008.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0008.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0009.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0009.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0010.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0010.JPG" />
-          </div>
+          <?php } ?>
 
 
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0011.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0011.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0012.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0012.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0013.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0013.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0014.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0014.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0015.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0015.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0016.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0016.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0016.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0016.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0017.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0017.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0018.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0018.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0019.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0019.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0020.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0020.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0021.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0021.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0022.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0022.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0023.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0023.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0024.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0024.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0024.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0024.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0025.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0025.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0026.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0026.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0027.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0027.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0028.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0028.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0029.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0029.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0030.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0030.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0031.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0031.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0032.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0032.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0033.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0033.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0034.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0034.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0035.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0035.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0035a.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0035a.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0036.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0036.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0037.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0037.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0037a.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0037a.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0037b.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0037b.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0037c.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0037c.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0038.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0038.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0039.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0039.JPG" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-fabulosa/0.0040.JPG" alt="Villa Fabulosa 3" class="w-full h-[600px] object-cover"
-              data-large="./images/villa-fabulosa/0.0040.JPG" />
-          </div>
 
 
         </div>
@@ -577,80 +241,24 @@
 
 
     <div class="w-[90%] mx-auto mt-12">
-      <p class="italic text-black text-xl">Villa Fantastica</p>
+      <p class="italic text-black text-xl">Villa Espectacular</p>
       <div class="swiper mySwiper shadow-lg">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/1.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/1.jpg" />
-          </div>
 
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/2.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/2.jpg" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/3.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/3.jpg" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/4.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/4.jpg" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/5.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/5.jpg" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/6.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/6.jpg" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/7.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/7.jpg" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/8.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/8.jpg" />
-          </div>
+          <?php
+          foreach ($vistaImages as $ind => $image) {
+          ?>
 
 
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/10.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/10.jpg" />
-          </div>
+            <div class="swiper-slide">
 
+              <a href="<?php echo $image ?>" data-lightbox="image-vista">
+                <img src="<?php echo $image ?>" alt="Villa Fabulosa 1" class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover" />
+              </a>
+            </div>
 
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/11.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/11.jpg" />
-          </div>
-
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/12.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/12.jpg" />
-          </div>
-
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/13.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/13.jpg" />
-          </div>
-
-
-          <div class="swiper-slide">
-            <img src="./images/villa-vista/14.jpg" alt="Villa Fabulosa 1" class="w-full h-96 object-cover"
-              data-large="./images/villa-vista/14.jpg" />
-          </div>
-
+          <?php } ?>
 
 
 
@@ -676,7 +284,7 @@
 
       </h1>
       <p>
-        Our upcoming project, Villa Fantastica, will set a new standard of luxury living. Set to break ground in November 2024, this stunning home will feature breathtaking 360-degree views, six large bedrooms, 5.5 baths, a spacious kitchen with a large pantry, a four-car garage, two decks, and a third-story bar with a spacious rooftop. Additionally, it will include a private theater for an exceptional entertainment experience.
+        Our upcoming project, Villa Espectacular, will set a new standard of luxury living. Set to break ground in November 2024, this stunning home will feature breathtaking 360-degree views, six large bedrooms, 5.5 baths, a spacious kitchen with a large pantry, a four-car garage, two decks, and a third-story bar with a spacious rooftop. Additionally, it will include a private theater for an exceptional entertainment experience.
 
       </p>
     </div>
@@ -701,55 +309,20 @@
       <div class="swiper inspirationSwiper shadow-lg">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="./images/inspiration/1.jpg" alt="Villa Fabulosa 1" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/1.jpg" />
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <img src="./images/inspiration/2.jpg" alt="Villa Fabulosa 2" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/2.jpg" />
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <img src="./images/inspiration/3.jpg" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/3.jpg" />
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <img src="./images/inspiration/4.png" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/4.png" />
-          </div>
 
-          <div class="swiper-slide">
-            <img src="./images/inspiration/5.png" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/5.png" />
-          </div>
+          <?php
+          foreach ($inspirationImages as $ind => $image) {
+          ?>
 
-          <div class="swiper-slide">
-            <img src="./images/inspiration/6.png" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/6.png" />
-          </div>
 
-          <div class="swiper-slide">
-            <img src="./images/inspiration/7.png" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/7.png" />
-          </div>
+            <div class="swiper-slide">
 
-          <div class="swiper-slide">
-            <img src="./images/inspiration/8.jpg" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/8.jpg" />
-          </div>
+              <a href="<?php echo $image ?>" data-lightbox="image-inspiration">
+                <img src="<?php echo $image ?>" alt="Villa Fabulosa 1" class="w-full h-64 object-cover" />
+              </a>
+            </div>
 
-          <div class="swiper-slide">
-            <img src="./images/inspiration/9.jpg" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/9.jpg" />
-          </div>
-
-          <div class="swiper-slide">
-            <img src="./images/inspiration/10.jpg" alt="Villa Fabulosa 3" class="w-full h-64 object-cover"
-              data-large="./images/inspiration/10.jpg" />
-          </div>
+          <?php } ?>
 
 
         </div>
@@ -763,15 +336,6 @@
     </div>
 
 
-    <!-- Lightbox Modal for Inspiration Section -->
-    <!-- <div class="lightbox inspiration-lightbox" id="inspiration-lightbox ">
-        <span
-          class="inspiration-lightbox-close"
-          onclick="closeInspirationLightbox()"
-          >&times;</span
-        >
-        <img id="inspiration-lightbox-image" src="" alt="Large view" />
-      </div> -->
 
     <!-- Container for Product Section -->
     <div class="container mx-auto px-4 py-12" id="products">
@@ -911,8 +475,8 @@
 
         <form id="contact-form" action="./contact.php" method="POST">
 
-        <input type="hidden" name="page" value="index.php">
-          
+          <input type="hidden" name="page" value="index.php">
+
           <!-- Name Input -->
           <div class="mb-4">
             <input type="text" name="name" id="name" placeholder="Name"
@@ -1011,15 +575,18 @@
   </div>
 
   <!-- Lightbox Modal -->
-  <div class="lightbox" id="lightbox">
+  <!-- <div class="lightbox" id="lightbox">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
     <img id="lightbox-image" src="" alt="Large view" />
-  </div>
+  </div> -->
 
   <!-- Swiper.js JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
   <script src="./script.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./lightbox/src/js/lightbox.js"></script>
 
   <!-- JavaScript to handle Swiper and Lightbox -->
   <script>
@@ -1037,32 +604,6 @@
       spaceBetween: 30,
       slidesPerView: 1, // Display one image at a time
     });
-
-    // Lightbox functionality
-
-    document.querySelectorAll(".swiper-slide img").forEach((img) => {
-      img.addEventListener("click", function() {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImage = document.getElementById("lightbox-image");
-        lightboxImage.src = this.getAttribute("data-large");
-        lightbox.classList.add("active");
-      });
-    });
-
-    function closeLightbox() {
-      const lightbox = document.getElementById("lightbox");
-      lightbox.classList.remove("active");
-    }
-
-    function closeLightbox() {
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImage = document.getElementById("lightbox-image");
-      lightboxImage.src = ""; // Reset the image source to remove the image from the modal
-      console.log("lightboxImage", lightboxImage.src);
-
-      lightbox.classList.remove("active"); // Close the modal
-    }
-
 
     // Initialize Swiper
     var inspirationSwiper = new Swiper(".inspirationSwiper", {
@@ -1092,22 +633,12 @@
       },
     });
 
-    // Lightbox functionality.
-    document.querySelectorAll(".swiper-slide img").forEach((img) => {
-      img.addEventListener("click", function() {
-        const lightbox = document.getElementById("inspiration-lightbox");
-        const lightboxImage = document.getElementById(
-          "inspiration-lightbox-image"
-        );
-        lightboxImage.src = this.getAttribute("data-large");
-        lightbox.classList.add("active");
-      });
+    lightbox.option({
+      'resizeDuration': 50,
+      'wrapAround': true,
+      'alwaysShowNavOnTouchDevices':true,
+      'fadeDuration': 200,
     });
-
-    function closeInspirationLightbox() {
-      const lightbox = document.getElementById("inspiration-lightbox");
-      lightbox.classList.remove("active");
-    }
 
 
 
@@ -1127,7 +658,7 @@
     function scrollToTop() {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth' // This makes the scroll smooth
+        behavior: 'smooth' // This makes the scroll smooth,
       });
     }
   </script>

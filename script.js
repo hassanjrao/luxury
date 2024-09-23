@@ -29,10 +29,12 @@ window.addEventListener("scroll", () => {
         // When the page is scrolled down, change the navbar background color to black
         navbar.classList.add("bg-black");
         navbar.classList.add("text-white");
+        document.getElementById("animatedTitle").classList.remove("hidden");
     } else {
         // When the page is at the top, remove the background color
         navbar.classList.remove("bg-black");
         navbar.classList.remove("text-white");
+        document.getElementById("animatedTitle").classList.add("hidden");
     }
 });
 
