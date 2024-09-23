@@ -234,7 +234,7 @@
 
 
     <div class="w-1/2 mx-auto mt-10">
-      <video width="720" id="videoFab" height="480" controls poster="./images/villa-fabulosa/thumb.png">
+      <video width="720" id="videoFab" height="480" controls poster="./images/thumb.png">
         <source src="./images/villa-fabulosa/video.mp4" type="video/mp4" />
       </video>
     </div>
