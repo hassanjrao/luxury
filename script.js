@@ -5,6 +5,14 @@ const dropdown = document.getElementById("dropdown");
 let menuOpen = false;
 
 menuButton.addEventListener("click", () => {
+    console.log('asd')
+    dropdown.classList.toggle("hidden");
+    menuOpen = !menuOpen;
+});
+
+
+dropdown.addEventListener("click", () => {
+    console.log('clicked')
     dropdown.classList.toggle("hidden");
     menuOpen = !menuOpen;
 });

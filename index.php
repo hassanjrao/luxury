@@ -124,7 +124,7 @@
       <a onclick="scrollToTop()" class="cursor-pointer">Modern Luxury Builders</a>
     </h1>
     <div class="flex gap-4 items-center justify-center" id="menu">
-      <a href="https://www.tiktok.com/explore">
+      <a href="https://www.tiktok.com/@modernluxurybuilders?_t=8pzgBG8emMN&_r=1">
         <img src="./images/tiktok-icon-free-png.webp" alt="" class="w-10 h-10 mx-auto" /></a>
       <div class="h-10 w-16 bg-black mx-auto cursor-pointer relative" id="menuButton">
         <img src="./images/menu.png" alt="" class="h-8 w-10 mx-auto pt-2" />
@@ -153,7 +153,7 @@
 
   <div class="mt-4 relative" id="top">
     <!-- <img src="./images/0.0039.JPG" alt="" class="h-full w-full mx-auto" /> -->
-    <video width="100%" height="100%" muted autoplay loop>
+    <video width="100%" height="100%" muted autoplay loop playsinline class="w-full h-full object-cover">
       <source src="./videos/herosection.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
@@ -271,7 +271,7 @@
     </div>
 
     <div class="w-1/2 mx-auto mt-10">
-      <video width="720" height="480" controls id="videoEsc">
+      <video width="720" height="480" controls id="videoEsc" poster="./images/thumb2.png">
         <source src="./videos/video-esc.mp4" type="video/mp4" />
       </video>
     </div>
@@ -354,14 +354,14 @@
       </div>
 
       <!-- Image Section with VR Link -->
-      <div class="mb-8">
+      <div class="mb-8 w-[80%] mx-auto">
         <a href="https://vr.justeasy.cn/view/1c7d2n05f98072e0-1725530309.php" target="_blank">
           <img src="./images/image.png" alt="VR Preview" class="w-full h-98 object-cover shadow-lg" />
         </a>
       </div>
 
       <!-- Product Description Section -->
-      <div class="text-lg mb-6">
+      <div class="text-lg mb-6 w-[80%] mx-auto">
         <p>
           At <strong>Modern Luxury Builders</strong>, we are committed to
           delivering exceptional value by sourcing hundreds of products
@@ -391,12 +391,12 @@
     </div>
 
     <!-- Full-width Image -->
-    <div class="w-full">
+    <div class="w-[80%] mx-auto">
       <img src="./images/ss1.png" alt="About Us Image" class="w-full h-auto object-cover" />
     </div>
 
     <!-- About Us Paragraph -->
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 py-8 w-[80%] mx-auto">
       <h2 class="text-black font-bold text-xl">Our Mission</h2>
       <p class="text-lg mb-8 leading-relaxed">
         Modern Luxury Builders is redefining luxury living with a unique and unparalleled approach to designing and constructing exquisite homes. What sets us apart is our partnership with leading international architects, designers, and manufacturers to seamlessly integrate innovative design concepts and cutting-edge technologies and products from around the world. This global collaboration ensures that each home we create is not only a masterpiece of modern luxury but also a testament to the highest standards of design and craftsmanship from around the globe.
@@ -406,7 +406,7 @@
     </div>
 
     <!-- Image on Left and Text on Right -->
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 py-8 w-[80%] mx-auto">
       <div class="flex flex-col md:flex-row items-center">
         <!-- Left Image -->
         <img src="./images/about/2.jpg" alt="Alex Lluch"
@@ -419,7 +419,7 @@
     </div>
 
     <!-- Text on Left and Image on Right -->
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 py-8 w-[80%] mx-auto">
       <div class="flex flex-col md:flex-row-reverse items-center">
         <!-- Right Image -->
         <img src="./images/about/1.JPG" alt="Alexander Lluch"

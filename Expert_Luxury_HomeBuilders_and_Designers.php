@@ -17,7 +17,7 @@
             <a href="./index.php" class="cursor-pointer">Modern Luxury Builders</a>
         </h1>
         <div class="flex gap-4 items-center justify-center" id="menu">
-            <a href="https://www.tiktok.com/explore">
+            <a href="https://www.tiktok.com/@modernluxurybuilders?_t=8pzgBG8emMN&_r=1">
                 <img src="./images/tiktok-icon-free-png.webp" alt="" class="w-10 h-10 mx-auto" /></a>
             <div class="h-10 w-16 bg-black mx-auto cursor-pointer relative" id="menuButton">
                 <img src="./images/menu.png" alt="" class="h-8 w-10 mx-auto pt-2" />
