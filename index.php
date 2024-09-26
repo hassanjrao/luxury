@@ -151,14 +151,26 @@
     </div>
   </nav>
 
-  <div class="mt-4 relative" id="top">
+  <div class="mt-1 relative" id="top">
     <!-- <img src="./images/0.0039.JPG" alt="" class="h-full w-full mx-auto" /> -->
-    <video width="100%" height="100%" muted autoplay loop playsinline class="w-full h-full object-cover">
-      <source src="./videos/herosection.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div class="w-full h-full">
+      <!-- <iframe src="https://player.vimeo.com/video/1012601556?autoplay=1&muted=1&loop=1&background=1"
+        width="100%" height="100%"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        class="w-full h-full object-cover">
+      </iframe> -->
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe allowfullscreen src="https://player.vimeo.com/video/1012601556?h=2cbd00e806&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+
+      </div>
+
+      <!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
+
+    </div>
     <h1 id="animatedTitle"
-      class="hidden title text-stroke w-full px-4 uppercase font-bold tracking-wider text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-8xl absolute text-center md:bottom-24 bottom-5">
+      class="hidden title text-stroke w-full uppercase font-bold tracking-wider text-xl sm:text-6xl md:text-5xl lg:text-6xl xl:text-8xl absolute text-center md:bottom-24 bottom-5 ">
       Modern Luxury Builders
     </h1>
   </div>
