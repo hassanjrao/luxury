@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="./lightbox/src/css/lightbox.css" rel="stylesheet" />
-  <title>Modern Luxury Building</title>
+  <title>Modern Luxury Builders</title>
   <style>
     .swiper-slide img {
       width: 100%;
@@ -118,7 +118,7 @@
 </head>
 
 <body class="bg-gray-100 w-full h-full mx-auto">
-  <nav class="h-16 md:w-full w-full mx-auto flex items-center justify-between sticky top-0 z-10 px-4">
+  <nav class="h-16 md:w-full w-full mx-auto flex items-center justify-between sticky top-0 z-10 px-4 transition-colors duration-500">
     <h1 class="uppercase font-bold md:text-2xl w-full text-xs" id="topBar">
 
       <a onclick="scrollToTop()" class="cursor-pointer">Modern Luxury Builders</a>
@@ -151,7 +151,7 @@
     </div>
   </nav>
 
-  <div class="mt-1 relative" id="top">
+  <div class="mt-0 relative" id="top">
     <!-- <img src="./images/0.0039.JPG" alt="" class="h-full w-full mx-auto" /> -->
     <div class="w-full h-full">
       <!-- <iframe src="https://player.vimeo.com/video/1012601556?autoplay=1&muted=1&loop=1&background=1"
@@ -162,7 +162,8 @@
         class="w-full h-full object-cover">
       </iframe> -->
       <div style="padding:56.25% 0 0 0;position:relative;">
-        <iframe allowfullscreen src="https://player.vimeo.com/video/1012601556?h=2cbd00e806&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        <iframe allowfullscreen src="https://player.vimeo.com/video/1012601556?h=2cbd00e806&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1&amp;dnt=1"
+          frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
 
       </div>
 
@@ -178,7 +179,7 @@
   <div class="w-[80%] text-start mt-5 mx-auto">
     <h2 class="text-black font-bold text-xl">Modern Luxury Builders</h2>
     <p>
-      We specialize in designing and building the most modern and luxurious homes in Southern California. Our designs merge cutting-edge designs with unparalleled elegance, delivering living spaces that are both stunning and functional. We are dedicated to crafting homes that epitomize sophistication, comfort, and innovation, creating residences that not only meet but exceed the highest standards of luxury and style.
+      We specialize in designing and building the most modern and luxurious homes in Southern California. Our designs seamlessly blend modern innovation with timeless elegance, creating living spaces that are as breathtaking as they are practical. We are dedicated to crafting homes that epitomize sophistication, comfort, and innovation, creating residences that not only meet but exceed the highest standards of luxury and style.
     </p>
   </div>
   <div class="w-full mx-auto mt-12">
@@ -192,7 +193,7 @@
         </h2>
         <div class="flex-grow border-t-4 border-black"></div>
       </div>
-      <p class="italic text-xl">Villa Fabulosa</p>
+      <h1 class="italic  font-bold text-4xl">Villa Fabulosa</h1>
     </div>
 
     <?php
@@ -245,15 +246,46 @@
     </div>
 
 
-    <div class="w-1/2 mx-auto mt-10">
-      <video width="720" id="videoFab" height="480" controls poster="./images/thumb.png">
-        <source src="./images/villa-fabulosa/video.mp4" type="video/mp4" />
-      </video>
-    </div>
+
+    <div class="w-[90%] flex flex-col md:flex-row mx-auto mt-10 gap-6 items-center md:items-start">
+
+  <!-- Video -->
+  <div class="w-full md:w-1/2 flex aspect-video">
+    <video id="videoFab" class="w-full h-full rounded-lg shadow-md object-cover" controls poster="./images/thumb.png">
+      <source src="./images/villa-fabulosa/video.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Image with Text Overlay -->
+  <div class="w-full md:w-1/2 flex aspect-video relative overflow-hidden rounded-lg shadow-md">
+    <a href="https://www.youtube.com/watch?v=xwmYm-XCr_o" target="_blank" class="w-full h-full">
+      <img src="./images/villa-fabulosa/0.0004.JPG" alt="Side Image" class="w-full h-full object-cover" />
+
+      <!-- Text overlay -->
+      <div class="absolute inset-0 flex flex-col justify-between p-6 text-white bg-black/30 rounded-lg">
+        <div>
+          <h2 class="text-xl font-semibold">Voted Top Ten Vacation Rental in the U.S.</h2>
+          <h3 class="text-lg">by Expedia Group and VRBO</h3>
+        </div>
+        <div class="text-right text-base font-medium">
+          Watch the announcement →
+        </div>
+      </div>
+
+    </a>
+  </div>
+
+</div>
+
+
+
+
+
+
 
 
     <div class="w-[90%] mx-auto mt-12">
-      <p class="italic text-black text-xl">Villa Espectacular</p>
+      <p class="italic text-black  font-bold text-4xl">Villa Spectacular</p>
       <div class="swiper mySwiper shadow-lg">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
@@ -282,13 +314,6 @@
       </div>
     </div>
 
-    <div class="w-1/2 mx-auto mt-10">
-      <video width="720" height="480" controls id="videoEsc" poster="./images/thumb2.png">
-        <source src="./videos/video-esc.mp4" type="video/mp4" />
-      </video>
-    </div>
-
-    <div id="inspiration"></div>
 
     <div class="w-[90%] mx-auto px-12 mt-12">
       <h1 class="text-black font-bold text-xl">
@@ -296,10 +321,23 @@
 
       </h1>
       <p>
-        Our upcoming project, Villa Espectacular, will set a new standard of luxury living. Set to break ground in November 2024, this stunning home will feature breathtaking 360-degree views, six large bedrooms, 5.5 baths, a spacious kitchen with a large pantry, a four-car garage, two decks, and a third-story bar with a spacious rooftop. Additionally, it will include a private theater for an exceptional entertainment experience.
+        Our upcoming project, Villa Spectacular, will set a new standard of luxury living. Set to break ground in November 2024, this stunning home will feature breathtaking 360-degree views, six large bedrooms, 5.5 baths, a spacious kitchen with a large pantry, a four-car garage, two decks, and a third-story bar with a spacious rooftop. Additionally, it will include a private theater for an exceptional entertainment experience.
 
       </p>
     </div>
+
+    <div class="w-1/2 mx-auto mt-10">
+      <video width="720" height="480" controls id="videoEsc" poster="./images/thumb2.png">
+        <source src="./videos/video-esc.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe src="https://player.vimeo.com/video/1014502795?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Villa Spectacular"></iframe></div>
+      </div> -->
+
+    <div id="inspiration"></div>
+
 
     <!-- Page Title -->
 
@@ -356,20 +394,47 @@
 
       </h1>
       <div class="w-[90%] mx-auto">
-        <div class="flex items-center my-6">
+        <div class="flex items-center my-2">
           <div class="flex-grow border-t-4 border-black"></div>
           <h2 class="md:text-3xl mx-4 text-center text-xl font-bold my-8">
             OUR PRODUCTS
           </h2>
+
+
           <div class="flex-grow border-t-4 border-black"></div>
+
         </div>
+      </div>
+      <div class="w-[90%] mx-auto mb-4">
+
+        <p>
+          Explore over 40 curated galleries featuring a stunning collection of modern, beautifully designed products sourced from our trusted partners.</p>
       </div>
 
       <!-- Image Section with VR Link -->
-      <div class="mb-8 w-[80%] mx-auto">
-        <a href="https://vr.justeasy.cn/view/1c7d2n05f98072e0-1725530309.php" target="_blank">
+      <div class="mb-8 w-[90%] mx-auto cursor-pointer">
+
+
+        <!-- Your Image -->
+        <!-- <img src="your-image-url.jpg" alt="Thumbnail" class="w-full h-auto"> -->
+
+        <a class="relative inline-block" href="https://vr.justeasy.cn/view/1c7d2n05f98072e0-1725530309.php" target="_blank">
           <img src="./images/image.png" alt="VR Preview" class="w-full h-98 object-cover shadow-lg" />
+
+          <!-- YouTube Play Icon -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <!-- SVG Play Icon for YouTube -->
+
+            <!-- Red circle with white YouTube play icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48" width="120" height="80" class="w-26 h-26 fill-current text-red-600">
+              <path d="M66.52 7.01a8.23 8.23 0 00-5.8-5.82C56.54 0 34 0 34 0s-22.54 0-26.71 1.19a8.23 8.23 0 00-5.8 5.82C0 11.2 0 24 0 24s0 12.8 1.49 16.99a8.23 8.23 0 005.8 5.82C11.46 48 34 48 34 48s22.54 0 26.71-1.19a8.23 8.23 0 005.8-5.82C68 36.8 68 24 68 24s0-12.8-1.49-16.99z" />
+              <path d="M27 34V14l18 10-18 10z" class="fill-current text-white" />
+            </svg>
+
+          </div>
         </a>
+
+
       </div>
 
       <!-- Product Description Section -->
@@ -380,7 +445,7 @@
           directly from manufacturers all over the world. This direct
           procurement approach not only ensures the highest quality but also
           enables us to pass significant savings directly to you. By cutting
-          out the middleman, we save you tens, or even hundreds, of dollars on
+          out the middleman, we save you tens, or even hundreds of thousands of dollars on
           top-tier materials and products, making luxury more accessible and
           affordable without compromising on excellence. Mr. Lluch has
           imported millions of products from companies overseas.
@@ -423,10 +488,13 @@
         <!-- Left Image -->
         <img src="./images/about/2.jpg" alt="Alex Lluch"
           class="w-80 h-96 object-cover mb-4 md:mb-0 md:mr-8 rounded-lg shadow-lg" />
+
         <!-- Right Text -->
-        <p class="text-lg leading-relaxed">
-          Alex Lluch is a very successful investor and real estate professional. He owns Real Estate in California, Georgia, North Carolina, and Florida. He is a realtor in the state of California. He is also a best-selling author who has written and published over 300 best-selling books, including The Ultimate Home Buying Guide & Organizer, The Ultimate Home Selling Guide & Organizer, The Ultimate Home Journal & Organizer, the Very Best Home Improvement Guide & Document Organizer, Home Buying Made Easy, Home Selling Made Easy. His books have sold over 5,000,000 copies. Mr. Lluch is a renowned home designer, interior decorator, and home builder. He has also designed, built, decorated, and managed the two most popular short-term rentals in Temecula Wine Country.
-        </p>
+        <div class="text-lg leading-relaxed">
+          <h2 class="italic text-black  font-bold text-4xl py-3">Alex Lluch, President & CEO</h2>
+          <p>Alex Lluch is a very successful investor and real estate professional. He is a Realtor in the state of California. He is also a best-selling author who has written and published over 300 best-selling books, including The Ultimate Home Buying Guide & Organizer, The Ultimate Home Selling Guide & Organizer, The Ultimate Home Journal & Organizer, the Very Best Home Improvement Guide & Document Organizer, Home Buying Made Easy, Home Selling Made Easy. His books have sold over 5,000,000 copies. Mr. Lluch is a renowned home designer, interior decorator, and home builder. He has also designed, built, decorated, and managed the two most popular short-term rentals in Temecula Wine Country.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -437,18 +505,20 @@
         <img src="./images/about/1.JPG" alt="Alexander Lluch"
           class="w-80 h-96 object-cover mb-4 md:mb-0 md:ml-8 rounded-lg shadow-lg" />
         <!-- Left Text -->
-        <p class="text-lg leading-relaxed">
-          Alexander Lluch, a UCLA economics graduate, brings a wealth of
-          experience to the field of real estate development, having spent
-          years honing his expertise in home design and construction. His
-          extensive hands-on experience, including the successful development
-          of the prestigious Villa Fabulosa, has fueled his passion for
-          creating sustainable and community-focused environments. With a deep
-          understanding of both the economic and practical aspects of home
-          building, Alexander is dedicated to delivering exceptional,
-          high-quality residential projects that elevate the standards of
-          luxury living.
-        </p>
+        <div class="text-lg leading-relaxed">
+          <h2 class="italic text-black  font-bold text-4xl py-3">Alexander Lluch, Vice President</h2>
+          <p>Alexander Lluch, a UCLA economics graduate, brings a wealth of
+            experience to the field of Real Estate development, having spent
+            years honing his expertise in home design and construction. His
+            extensive hands-on experience, including the successful development
+            of the prestigious Villa Fabulosa, has fueled his passion for
+            creating sustainable and community-focused environments. With a deep
+            understanding of both the economic and practical aspects of home
+            building, Alexander is dedicated to delivering exceptional,
+            high-quality residential projects that elevate the standards of
+            luxury living.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -602,8 +672,8 @@
 
   <!-- JavaScript to handle Swiper and Lightbox -->
   <script>
-    document.getElementById('videoFab').volume = 0.15;
-    document.getElementById('videoEsc').volume = 0.15;
+    // document.getElementById('videoFab').volume = 0.15;
+    // document.getElementById('videoEsc').volume = 0.15;
 
     // Initialize Swiper
     var swiper = new Swiper(".mySwiper", {

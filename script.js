@@ -34,10 +34,13 @@ const navbar = document.querySelector("nav");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
-        // When the page is scrolled down, change the navbar background color to black
-        navbar.classList.add("bg-black");
-        navbar.classList.add("text-white");
+        // When the page is scrolled down, change the navbar background color to black but it should fade in
+        
+        navbar.classList.add("bg-black","text-white", "opacity-100");
+    
         document.getElementById("animatedTitle").classList.remove("hidden");
+
+
     } else {
         // When the page is at the top, remove the background color
         navbar.classList.remove("bg-black");
