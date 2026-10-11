@@ -12,6 +12,24 @@ Revision `b799793` preserves the production page content, JavaScript and lightbo
 
 The original public PHP pages, JavaScript, lightbox stylesheet and `.htaccess` are backed up at `/home/dh_wdpk6q/.modernluxurybuilders-backup-4W1EYT/site-before-accessibility.tgz`. Git metadata is outside the web root at `/home/dh_wdpk6q/.modernluxurybuilders-git`; the site directory contains its Git pointer, so ordinary `git pull --ff-only origin main` works there. HTTP access to the Git pointer, editor configuration, tests and documentation is denied.
 
+## Production verification
+
+The application was deployed through `git push origin main` locally and `git pull --ff-only origin main` on the server. Application revision `1052429` contains the completed fixes. The production checkout's tracked files match GitHub after line-ending normalization; the two pre-existing favicons and DreamHost diagnostic files remain server-only.
+
+| Live check | Result |
+| --- | --- |
+| Desktop at 1280 × 720 | All 11 pages passed: HTTP 200, zero axe violations and browser script errors, one main heading and no horizontal overflow |
+| Mobile at 375 × 812 | All 11 pages passed the same checks |
+| Reflow at 320 × 800 | All 11 pages passed the same checks |
+| Keyboard and interactive states | Ten behavior checks and four open-state audits passed |
+| Public deployment checks | Updated skip link, labels and script verified; contact GET redirects with HTTP 303; Git pointer returns 403 and tests, docs and editor configuration return 404 |
+
+The live reports in `.audit-artifacts` are `live-axe-report.json`, `live-axe-mobile-report.json`, `live-axe-reflow-report.json` and `live-keyboard-report.json`. `live-mobile-menu.png` records the open navigation. Browser tests fetch actual production assets.
+
+One image connection reset during the first desktop scan. A direct recheck returned HTTP 200 with a checksum matching the checkout, and the final desktop scan recorded no failed resource requests. An early concurrent keyboard retry timed out loading the homepage; the final interaction and page checks completed sequentially. These were test observations, not confirmed server-side defects.
+
+The caption, embedded-player and assistive-technology limitations below remain. No live email was sent, and no AccessibilityChecker account scan was run.
+
 ## Changes
 
 - Shared named navigation, a skip link and one main landmark and main heading per public page.
