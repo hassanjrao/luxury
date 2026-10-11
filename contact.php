@@ -36,7 +36,7 @@ if (!$errors) {
             }
             if ($sent && trim($deliveryOutput) === '') {
                 unset($_SESSION['luxury_contact']);
-                header('Location: ' . $page . '?mailsend#contact', true, 303);
+                header('Location: ' . $page . '?mailsend#contact-status', true, 303);
                 exit;
             }
         } catch (Throwable $exception) {
@@ -46,5 +46,5 @@ if (!$errors) {
     $errors['delivery'] = 'Your message could not be sent. Please try again later. Your entries have been kept below.';
 }
 $_SESSION['luxury_contact'] = ['values' => $values, 'errors' => $errors];
-header('Location: ' . $page . '?contacterror#contact', true, 303);
+header('Location: ' . $page . '?contacterror#contact-errors', true, 303);
 exit;

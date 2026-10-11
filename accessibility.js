@@ -69,8 +69,8 @@
   const status = document.getElementById('contact-errors') || document.getElementById('contact-status');
   if (status) {
     const focusStatus = () => requestAnimationFrame(() => status.focus());
-    if (document.readyState === 'complete') focusStatus();
-    else addEventListener('load', focusStatus, {once:true});
+    if (document.readyState !== 'loading') focusStatus();
+    else addEventListener('DOMContentLoaded', focusStatus, {once:true});
   }
   const galleryLinks = [...document.querySelectorAll('[data-lightbox]')];
   if (galleryLinks.length) {

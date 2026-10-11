@@ -5,6 +5,7 @@ const {base,root,prepare,audit,save}=require('./browser.cjs');
   const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
   const mobile=process.argv.includes('--mobile');
   const reflow=process.argv.includes('--reflow');
+  const enlarged=process.argv.includes('--text-enlarged');
   const viewport=reflow?{width:320,height:800}:mobile?{width:375,height:812}:{width:1280,height:720};
   const page=await browser.newPage({viewport});await prepare(page);
   const args=process.argv.slice(2).filter(arg=>!arg.startsWith('--'));
@@ -17,6 +18,7 @@ const {base,root,prepare,audit,save}=require('./browser.cjs');
     page.on('pageerror',onError);page.on('requestfailed',onFailure);
     const response=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:60000});
     await page.waitForTimeout(1500);
+    if(enlarged){await page.addStyleTag({content:'html { font-size: 200% !important; }'});await page.waitForTimeout(100);}
     const result=await audit(page);
     const headings=await page.locator('h1').count();
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
@@ -24,7 +26,7 @@ const {base,root,prepare,audit,save}=require('./browser.cjs');
     console.log(route,JSON.stringify({status:response.status(),errors,violations:result.violations,headings,overflow}));
     page.off('pageerror',onError);page.off('requestfailed',onFailure);
   }
-  console.log(save(reflow?'axe-reflow-report':mobile?'axe-mobile-report':'axe-report',{viewport,results}));
+  console.log(save(enlarged?'axe-text-enlarged-report':reflow?'axe-reflow-report':mobile?'axe-mobile-report':'axe-report',{viewport,textSize:enlarged?'200%':'100%',results}));
   await browser.close();
   if(results.some(r=>r.status!==200||r.violations.length||r.errors.length||r.headings!==1||r.overflow))process.exitCode=1;
 })().catch(error=>{console.error(error);process.exitCode=1;});

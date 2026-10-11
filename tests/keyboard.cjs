@@ -5,6 +5,7 @@ const {base,root,local,prepare,audit,save}=require('./browser.cjs');
 (async()=>{
  const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
  const page=await browser.newPage({viewport:{width:1280,height:720}});await prepare(page);
+ page.setDefaultNavigationTimeout(60000);
  const checks=[];
  const check=(name)=>{checks.push({name,passed:true});console.log('PASS',name);};
  const openAudit=async name=>{const result=await audit(page);checks.push({name,...result});assert.equal(result.violations.length,0,JSON.stringify(result.violations));console.log('PASS',name);};
@@ -38,15 +39,15 @@ const {base,root,local,prepare,audit,save}=require('./browser.cjs');
   // Invalid data exercises the real validation handler without delivering mail.
   await page.locator('#phone').fill('5550101234');await page.locator('#email').fill('invalid');await page.locator('#message').fill('Accessibility validation test; no email should be delivered.');
   await page.locator('#contact-form').evaluate(form=>form.noValidate=true);
-  await Promise.all([page.waitForURL(/contacterror/),page.locator('#contact-form').evaluate(form=>HTMLFormElement.prototype.submit.call(form))]);
+  await Promise.all([page.waitForURL(/contacterror/,{waitUntil:'domcontentloaded'}),page.locator('#contact-form').evaluate(form=>HTMLFormElement.prototype.submit.call(form))]);
   await page.waitForFunction(()=>document.activeElement.id==='contact-errors');assert.equal(await page.locator('#email').getAttribute('aria-invalid'),'true');assert.equal(await page.locator('#name').inputValue(),'Accessibility audit');
   await openAudit('Server form validation error accessibility');check('Server validation announces errors and preserves entered values');
   if(local){
    await page.locator('#email').fill('audit@example.com');
-   await Promise.all([page.waitForNavigation(),page.locator('#contact-form button').click()]);
+   await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#contact-form button').click()]);
    assert((await page.locator('#contact-errors').textContent()).includes('Your message could not be sent'));assert.equal(await page.locator('#email').inputValue(),'audit@example.com');check('Delivery failure is accessible and keeps the message');
   }
-  await page.goto(base+'/?mailsend#contact',{waitUntil:'load'});await page.waitForFunction(()=>document.activeElement.id==='contact-status');await openAudit('Success message accessibility');check('Success message receives focus');
+  await page.goto(base+'/?mailsend#contact-status',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.activeElement.id==='contact-status');await openAudit('Success message accessibility');check('Success message receives focus');
   await page.emulateMedia({reducedMotion:'reduce'});await page.goto(base+'/',{waitUntil:'domcontentloaded'});await page.waitForTimeout(1500);
   assert(await page.locator('iframe').first().evaluate(el=>new URL(el.src).searchParams.get('autoplay')==='0'));
   assert.equal(await page.locator('video[autoplay]').count(),0);assert.equal(await page.locator('.swiper').first().evaluate(el=>el.swiper.params.speed),0);check('Media does not autoplay and carousel honors reduced motion');

@@ -34,6 +34,10 @@ The original public PHP pages, JavaScript, lightbox stylesheet and `.htaccess` a
 | Delivery integration fixtures | Five checks passed: success redirect, returned error, thrown error, escaped validation values and safe redirect target |
 | PHP and JavaScript syntax | Passed |
 
+The homepage and a service-page template also passed a 200% root-font-size check at the mobile viewport. This supplements the viewport reflow checks; it does not replace testing browser zoom and text enlargement with assistive technology.
+
+Production testing identified a leading newline before the contact controller's PHP opening tag, which could prevent redirects when output buffering was disabled. The newline was removed and the delivery fixture checks passed with buffering disabled. Outcome redirects now target the error or success summary directly, and focus does not wait for embedded media to finish loading.
+
 Tests never send live contact messages. Invalid live submissions exercise server validation; valid live submissions are blocked by the browser harness. The success-message check uses the existing `mailsend` display state and does not establish email delivery. Delivery fixtures use a local stub. Images are served directly from the checkout only during local tests; live tests request actual production assets.
 
 ## Reproduce
@@ -52,12 +56,13 @@ In another terminal:
 npm run test:a11y
 npm run test:a11y:mobile
 node tests/accessibility.cjs --reflow
+node tests/accessibility.cjs --mobile --text-enlarged
 npm run test:a11y:keyboard
 ```
 
 To use production, set `$env:ACCESSIBILITY_BASE_URL='https://modernluxurybuilders.com'` before these commands. Results are in `.audit-artifacts`, with `live-` filenames for production. Reports retain violations, manual-review items and resource failures. Generated reports and screenshots are ignored by Git.
 
-To test delivery integration without sending mail, start a separate local PHP server with `$env:MODERN_LUXURY_CONTACT_HANDLER=(Resolve-Path tests/fixtures/contact-handler.php).Path` on port 8101, then run `npm run test:contact`. Use a writable PHP session directory. Do not point the delivery fixture tests at a server configured for real mail.
+To test delivery integration without sending mail, start a separate local PHP server with `$env:MODERN_LUXURY_CONTACT_HANDLER=(Resolve-Path tests/fixtures/contact-handler.php).Path` on port 8101 and `-d output_buffering=0`, then run `npm run test:contact`. Use a writable PHP session directory. Do not point the delivery fixture tests at a server configured for real mail.
 
 ## Remaining review
 
