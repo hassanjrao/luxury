@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 $pages = array_map('basename', glob(__DIR__ . '/*.php'));

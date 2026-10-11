@@ -33,7 +33,7 @@ footer a { padding: 0.35rem; }
 .swiper:not(.swiper-initialized) .swiper-wrapper { flex-wrap: wrap; }
 .swiper:not(.swiper-initialized) .swiper-slide { width: 100%; }
 .award-overlay { background: rgba(0,0,0,0.8) !important; }
-.hero-title { background: rgba(0,0,0,0.85); color: #fff; -webkit-text-stroke: 0; }
+.hero-title { background: rgba(0,0,0,0.85); color: #fff; -webkit-text-stroke: 0; pointer-events: none; }
 .photo-dialog { width: min(1000px,96vw); max-height: 96dvh; padding: 1rem; border: 0; border-radius: 0.5rem; background: #111; color: #fff; }
 .photo-dialog::backdrop { background: rgba(0,0,0,0.9); }
 .photo-dialog h2 { font-size: 1.1rem; font-weight: 700; }
