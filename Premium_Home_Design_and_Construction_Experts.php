@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . "/includes/contact-state.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,45 +8,15 @@
     <meta name="description" content="Premium Home Design and Construction Experts" />
     <title>Premium Home Design and Construction Experts</title>
     <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./accessibility.css">
 </head>
 
 <body>
     <!-- Header Section -->
-    <nav class="h-16 md:w-full w-full mx-auto flex items-center justify-between sticky top-0 z-10 px-4">
-        <h1 class="uppercase font-bold md:text-2xl w-full text-xs" id="topBar">
+    <?php require __DIR__ . "/includes/header.php"; ?>
 
-            <a href="./index.php" class="cursor-pointer">Modern Luxury Builders</a>
-        </h1>
-        <div class="flex gap-4 items-center justify-center" id="menu">
-            <a href="https://www.tiktok.com/@modernluxurybuilders?_t=8pzgBG8emMN&_r=1">
-                <img src="./images/tiktok-icon-free-png.webp" alt="" class="w-10 h-10 mx-auto" /></a>
-            <div class="h-10 w-16 bg-black mx-auto cursor-pointer relative" id="menuButton">
-                <img src="./images/menu.png" alt="" class="h-8 w-10 mx-auto pt-2" />
-            </div>
-            <div id="dropdown" class="absolute top-4 right-0 hidden bg-black rounded-lg shadow-lg mt-16 w-40"
-                tabindex="0">
-                <ul class="flex flex-col text-white text-center">
-                    <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-                        <a href="index.html#project" class=""> Projects</a>
-                    </li>
-                    <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-                        <a href="index.html#inspiration" class="">Inspiration</a>
-                    </li>
-                    <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-                        <a href="index.html#productSec" class="">Products</a>
-                    </li>
-                    <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-                        <a href="index.html#aboutus" class="">About</a>
-                    </li>
-                    <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-                        <a href="index.html#contact" class="">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="text-center mb-15 mt-20">
+    <main id="main-content" tabindex="-1">
+  <header class="text-center mb-15 mt-20">
         <h1 class="text-3xl font-bold text-gray-800">
             Premium Home Design
         </h1>
@@ -60,11 +31,11 @@
     </header>
 
     <!-- Image Section -->
-    <main class="w-100 mx-auto bg-white p-6">
+    <div class="w-100 mx-auto bg-white p-6">
         <div class="mb-6">
             <!-- Image Placeholder -->
 
-            <img src="./images/inspiration/9.jpg" alt="About Us Image" class="w-full h-[700px]" />
+            <img src="./images/inspiration/9.jpg" alt="<?= contactEscape(galleryDescription('./images/inspiration/9.jpg')) ?>" class="w-full h-[700px]" />
 
         </div>
 
@@ -73,9 +44,9 @@
         <section class="max-w-5xl mx-auto my-10 p-6">
             <!-- Introduction Paragraph -->
             <p class="mb-6 text-lg leading-relaxed">
-                If you’re seeking premium home design and construction experts, look no further than Modern Luxury
+                If youâ€™re seeking premium home design and construction experts, look no further than Modern Luxury
                 Builders. We specialize in creating exquisite, high-end residences that reflect the unique tastes and
-                lifestyles of our clients throughout California. In this article, we’ll discuss what makes us the
+                lifestyles of our clients throughout California. In this article, weâ€™ll discuss what makes us the
                 leading choice for premium home design, the comprehensive services we offer, and how we can help you
                 create a luxury home that meets your every desire.
             </p>
@@ -194,7 +165,7 @@
             <!-- Smart Home Integration -->
             <h3 class="text-2xl font-semibold text-gray-800 mb-2">Smart Home Integration</h3>
             <p class="mb-4">
-                The integration of smart technology is essential for today’s luxury homes. We design residences equipped
+                The integration of smart technology is essential for todayâ€™s luxury homes. We design residences equipped
                 with advanced systems for lighting, security, and climate control, enhancing both convenience and
                 comfort.
             </p>
@@ -225,65 +196,12 @@
 
 
             <div class="w-full max-w-4xl bg-gray-100 p-8 rounded-lg shadow-lg mx-auto">
-      
-              <!-- email sent message -->
-              <?php if (isset($_GET['mailsend'])) { ?>
-                <div class="text-green-500 text-center bg-green-100 border border-green-200 px-4 py-3 rounded relative"
-                  role="alert">
-                  <strong class="font-bold">Message sent successfully!</strong>
-                  <span class="block sm:inline">We will get back to you shortly.</span>
-                </div>
-              <?php } ?>
-      
-              <h2 class="text-center text-gray-600 mb-8">
-                Send us a message using the form below and someone from our team
-                will get back to you shortly.
-              </h2>
-      
-              <form id="contact-form" action="./contact.php" method="POST">
 
-              
-        <input type="hidden" name="page" value="Premium_Home_Design_and_Construction_Experts.php">
-          
-                <!-- Name Input -->
-                <div class="mb-4">
-                  <input type="text" name="name" id="name" placeholder="Name"
-      
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    required />
-                </div>
-      
-                <!-- Phone and Email Input (Side by Side) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                  <input type="tel" name="phone" id="phone" placeholder="Phone Number"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    required />
-                  <input type="email" name="email" id="email" placeholder="Email Address"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    required />
-                </div>
-      
-                <!-- Dropdown (General Inquiry) -->
-      
-                <!-- Message Input -->
-                <div class="mb-6">
-                  <textarea name="message" id="message" placeholder="Message" rows="5"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    required></textarea>
-                </div>
-      
-                <!-- Submit Button -->
-                <div class="text-center">
-                  <button type="submit"
-                    name="submit"
-                    class="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-950 transition duration-300">
-                    SUBMIT
-                  </button>
-                </div>
-              </form>
+              <?php require __DIR__ . "/includes/contact-form.php"; ?>
             </div>
           </div>
-    </main>
+    </div>
+</main>
 
     <!-- Footer Section -->
     <footer class="mt-10 text-center text-gray-600 mb-4">
@@ -341,10 +259,10 @@
           </li>
         </ul>
       </footer>
-    
 
 
-    <script src="./script.js"></script>
+
+    <script src="./accessibility.js"></script>
 </body>
 
 </html>

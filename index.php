@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . "/includes/contact-state.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="./lightbox/src/css/lightbox.css" rel="stylesheet" />
+
   <title>Modern Luxury Builders</title>
   <style>
     .swiper-slide img {
@@ -115,41 +116,12 @@
       /* Transparent text */
     }
   </style>
+  <link rel="stylesheet" href="./accessibility.css">
 </head>
 
 <body class="bg-gray-100 w-full h-full mx-auto">
-  <nav class="h-16 md:w-full w-full mx-auto flex items-center justify-between sticky top-0 z-10 px-4 transition-colors duration-500">
-    <h1 class="uppercase font-bold md:text-2xl w-full text-xs" id="topBar">
-
-      <a onclick="scrollToTop()" class="cursor-pointer">Modern Luxury Builders</a>
-    </h1>
-    <div class="flex gap-4 items-center justify-center" id="menu">
-      <a href="https://www.tiktok.com/@modernluxurybuilders?_t=8pzgBG8emMN&_r=1">
-        <img src="./images/tiktok-icon-free-png.webp" alt="" class="w-10 h-10 mx-auto" /></a>
-      <div class="h-10 w-16 bg-black mx-auto cursor-pointer relative" id="menuButton">
-        <img src="./images/menu.png" alt="" class="h-8 w-10 mx-auto pt-2" />
-      </div>
-      <div id="dropdown" class="absolute top-4 right-0 hidden bg-black rounded-lg shadow-lg mt-16 w-40" tabindex="0">
-        <ul class="flex flex-col text-white text-center">
-          <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-            <a onclick="scrollToElement('project')" class=""> Projects</a>
-          </li>
-          <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-            <a onclick="scrollToElement('inspiration')" class="">Inspiration</a>
-          </li>
-          <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-            <a onclick="scrollToElement('productSec')" class="">Products</a>
-          </li>
-          <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-            <a onclick="scrollToElement('aboutus')" class="">About</a>
-          </li>
-          <li class="py-1 hover:bg-white hover:text-black cursor-pointer">
-            <a onclick="scrollToElement('contact')" class="">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <?php require __DIR__ . "/includes/header.php"; ?>
+<main id="main-content" tabindex="-1">
 
   <div class="mt-0 relative" id="top">
     <!-- <img src="./images/0.0039.JPG" alt="" class="h-full w-full mx-auto" /> -->
@@ -162,7 +134,7 @@
         class="w-full h-full object-cover">
       </iframe> -->
       <div style="padding:56.25% 0 0 0;position:relative;">
-        <iframe allowfullscreen src="https://player.vimeo.com/video/1012601556?h=2cbd00e806&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1&amp;dnt=1"
+        <iframe title="Modern Luxury Builders property tour" allowfullscreen src="https://player.vimeo.com/video/1012601556?h=2cbd00e806&amp;autoplay=0&amp;loop=0&amp;background=0&amp;dnt=1"
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
 
       </div>
@@ -170,14 +142,14 @@
       <!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
 
     </div>
-    <h1 id="animatedTitle"
-      class="hidden title text-stroke w-full uppercase font-bold tracking-wider text-xl sm:text-6xl md:text-5xl lg:text-6xl xl:text-8xl absolute text-center md:bottom-24 bottom-5 ">
+    <p aria-hidden="true" id="animatedTitle"
+      class="hero-title title w-full uppercase font-bold tracking-wider text-xl sm:text-6xl md:text-5xl lg:text-6xl xl:text-8xl absolute text-center md:bottom-24 bottom-5 ">
       Modern Luxury Builders
-    </h1>
+    </p>
   </div>
   <div id="project"></div>
   <div class="w-[80%] text-start mt-5 mx-auto">
-    <h2 class="text-black font-bold text-xl">Modern Luxury Builders</h2>
+    <h1 class="text-black font-bold text-xl">Modern Luxury Builders</h1>
     <p>
       We specialize in designing and building the most modern and luxurious homes in Southern California. Our designs seamlessly blend modern innovation with timeless elegance, creating living spaces that are as breathtaking as they are practical. We are dedicated to crafting homes that epitomize sophistication, comfort, and innovation, creating residences that not only meet but exceed the highest standards of luxury and style.
     </p>
@@ -193,7 +165,7 @@
         </h2>
         <div class="flex-grow border-t-4 border-black"></div>
       </div>
-      <h1 class="italic  font-bold text-4xl">Villa Fabulosa</h1>
+      <h3 class="italic font-bold text-4xl">Villa Fabulosa</h3>
     </div>
 
     <?php
@@ -202,6 +174,7 @@
 
     $fabulosaImages = glob('./images/villa-fabulosa/*.{jpg,png,jpeg,JPG}', GLOB_BRACE);
     $vistaImages = glob('./images/villa-vista/*.{jpg,png,jpeg,JPG}', GLOB_BRACE);
+    require_once __DIR__ . '/includes/gallery-descriptions.php';
     $inspirationImages = glob('./images/inspiration/*.{jpg,png,jpeg,JPG}', GLOB_BRACE);
 
     ?>
@@ -219,7 +192,7 @@
             <div class="swiper-slide">
 
               <a href="<?php echo $image ?>" data-lightbox="image-fabulosa">
-                <img src="<?php echo $image ?>" alt="Villa Fabulosa 1" class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover" />
+                <img src="<?php echo $image ?>" alt="<?= contactEscape(galleryDescription($image)) ?>" loading="lazy" class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover" />
               </a>
             </div>
 
@@ -236,9 +209,9 @@
     </div>
 
     <div class="w-[80%] mx-auto text-start mt-5">
-      <h1 class="text-black font-bold text-xl">
+      <h4 class="text-black font-bold text-xl">
         An Architectural Masterpiece
-      </h1>
+      </h4>
       <p>
         Our latest project, Villa Fabulosa, continues our tradition of blending luxury with innovation. Inspired by the chic allure of Ibiza-style homes, this magnificent home offers unparalleled luxury, amenities, and entertainment areas. This exquisite home very quickly became the talk of the town and the premier short-term rental destination in Temecula Wine Country. It offers guests an unmatched luxury experience. Villa Fabulosa is a cornerstone in our mission to redefine sophisticated living across Southern California.
 
@@ -251,21 +224,21 @@
 
   <!-- Video -->
   <div class="w-full md:w-1/2 flex aspect-video">
-    <video id="videoFab" class="w-full h-full rounded-lg shadow-md object-cover" controls poster="./images/thumb.png">
+    <video aria-label="Villa Fabulosa property tour" preload="none" id="videoFab" class="w-full h-full rounded-lg shadow-md object-cover" controls poster="./images/thumb.png">
       <source src="./images/villa-fabulosa/video.mp4" type="video/mp4" />
     </video>
   </div>
 
   <!-- Image with Text Overlay -->
   <div class="w-full md:w-1/2 flex aspect-video relative overflow-hidden rounded-lg shadow-md">
-    <a href="https://www.youtube.com/watch?v=xwmYm-XCr_o" target="_blank" class="w-full h-full">
-      <img src="./images/villa-fabulosa/0.0004.JPG" alt="Side Image" class="w-full h-full object-cover" />
+    <a href="https://www.youtube.com/watch?v=xwmYm-XCr_o" target="_blank" rel="noopener" class="w-full h-full">
+      <img src="./images/villa-fabulosa/0.0004.JPG" alt="" class="w-full h-full object-cover" />
 
       <!-- Text overlay -->
-      <div class="absolute inset-0 flex flex-col justify-between p-6 text-white bg-black/30 rounded-lg">
+      <div class="absolute inset-0 flex flex-col justify-between p-6 text-white award-overlay rounded-lg">
         <div>
-          <h2 class="text-xl font-semibold">Voted Top Ten Vacation Rental in the U.S.</h2>
-          <h3 class="text-lg">by Expedia Group and VRBO</h3>
+          <p class="text-xl font-semibold">Voted Top Ten Vacation Rental in the U.S.</p>
+          <p class="text-lg">by Expedia Group and VRBO</p>
         </div>
         <div class="text-right text-base font-medium">
           Watch the announcement →
@@ -285,7 +258,7 @@
 
 
     <div class="w-[90%] mx-auto mt-12">
-      <p class="italic text-black  font-bold text-4xl">Villa Spectacular</p>
+      <h3 class="italic text-black font-bold text-4xl">Villa Spectacular</h3>
       <div class="swiper mySwiper shadow-lg">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
@@ -298,7 +271,7 @@
             <div class="swiper-slide">
 
               <a href="<?php echo $image ?>" data-lightbox="image-vista">
-                <img src="<?php echo $image ?>" alt="Villa Fabulosa 1" class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover" />
+                <img src="<?php echo $image ?>" alt="<?= contactEscape(galleryDescription($image)) ?>" loading="lazy" class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover" />
               </a>
             </div>
 
@@ -316,10 +289,10 @@
 
 
     <div class="w-[90%] mx-auto px-12 mt-12">
-      <h1 class="text-black font-bold text-xl">
+      <h4 class="text-black font-bold text-xl">
         Indulge in the Essence of Modern Elegance
 
-      </h1>
+      </h4>
       <p>
         Our upcoming project, Villa Spectacular, will set a new standard of luxury living. Set to break ground in November 2024, this stunning home will feature breathtaking 360-degree views, six large bedrooms, 5.5 baths, a spacious kitchen with a large pantry, a four-car garage, two decks, and a third-story bar with a spacious rooftop. Additionally, it will include a private theater for an exceptional entertainment experience.
 
@@ -327,7 +300,7 @@
     </div>
 
     <div class="w-1/2 mx-auto mt-10">
-      <video width="720" height="480" controls id="videoEsc" poster="./images/thumb2.png">
+      <video aria-label="Villa Spectacular design tour" preload="none" width="720" height="480" controls id="videoEsc" poster="./images/thumb2.png">
         <source src="./videos/video-esc.mp4" type="video/mp4" />
       </video>
     </div>
@@ -368,7 +341,7 @@
             <div class="swiper-slide">
 
               <a href="<?php echo $image ?>" data-lightbox="image-inspiration">
-                <img src="<?php echo $image ?>" alt="Villa Fabulosa 1" class="w-full h-64 object-cover" />
+                <img src="<?php echo $image ?>" alt="<?= contactEscape(galleryDescription($image)) ?>" loading="lazy" class="w-full h-64 object-cover" />
               </a>
             </div>
 
@@ -390,9 +363,7 @@
     <!-- Container for Product Section -->
     <div class="container mx-auto px-4 py-12" id="products">
       <!-- Title Section -->
-      <h1 class="md:text-3xl text-xl font-bold text-center mb-8" id="productsHeading">
 
-      </h1>
       <div class="w-[90%] mx-auto">
         <div class="flex items-center my-2">
           <div class="flex-grow border-t-4 border-black"></div>
@@ -418,15 +389,15 @@
         <!-- Your Image -->
         <!-- <img src="your-image-url.jpg" alt="Thumbnail" class="w-full h-auto"> -->
 
-        <a class="relative inline-block" href="https://vr.justeasy.cn/view/1c7d2n05f98072e0-1725530309.php" target="_blank">
-          <img src="./images/image.png" alt="VR Preview" class="w-full h-98 object-cover shadow-lg" />
+        <a class="relative inline-block" href="https://vr.justeasy.cn/view/1c7d2n05f98072e0-1725530309.php" target="_blank" rel="noopener">
+          <img src="./images/image.png" alt="Explore the building products gallery in a virtual showroom (opens in a new tab)" class="w-full h-98 object-cover shadow-lg" />
 
           <!-- YouTube Play Icon -->
           <div class="absolute inset-0 flex items-center justify-center">
             <!-- SVG Play Icon for YouTube -->
 
             <!-- Red circle with white YouTube play icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48" width="120" height="80" class="w-26 h-26 fill-current text-red-600">
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48" width="120" height="80" class="w-26 h-26 fill-current text-red-600">
               <path d="M66.52 7.01a8.23 8.23 0 00-5.8-5.82C56.54 0 34 0 34 0s-22.54 0-26.71 1.19a8.23 8.23 0 00-5.8 5.82C0 11.2 0 24 0 24s0 12.8 1.49 16.99a8.23 8.23 0 005.8 5.82C11.46 48 34 48 34 48s22.54 0 26.71-1.19a8.23 8.23 0 005.8-5.82C68 36.8 68 24 68 24s0-12.8-1.49-16.99z" />
               <path d="M27 34V14l18 10-18 10z" class="fill-current text-white" />
             </svg>
@@ -469,12 +440,12 @@
 
     <!-- Full-width Image -->
     <div class="w-[80%] mx-auto">
-      <img src="./images/ss1.png" alt="About Us Image" class="w-full h-auto object-cover" />
+      <img src="./images/ss1.png" alt="Modern two-story house with glass walls and an infinity pool" class="w-full h-auto object-cover" />
     </div>
 
     <!-- About Us Paragraph -->
     <div class="container mx-auto px-4 py-8 w-[80%] mx-auto">
-      <h2 class="text-black font-bold text-xl">Our Mission</h2>
+      <h3 class="text-black font-bold text-xl">Our Mission</h3>
       <p class="text-lg mb-8 leading-relaxed">
         Modern Luxury Builders is redefining luxury living with a unique and unparalleled approach to designing and constructing exquisite homes. What sets us apart is our partnership with leading international architects, designers, and manufacturers to seamlessly integrate innovative design concepts and cutting-edge technologies and products from around the world. This global collaboration ensures that each home we create is not only a masterpiece of modern luxury but also a testament to the highest standards of design and craftsmanship from around the globe.
 
@@ -491,7 +462,7 @@
 
         <!-- Right Text -->
         <div class="text-lg leading-relaxed">
-          <h2 class="italic text-black  font-bold text-4xl py-3">Alex Lluch, President & CEO</h2>
+          <h3 class="italic text-black  font-bold text-4xl py-3">Alex Lluch, President & CEO</h3>
           <p>Alex Lluch is a very successful investor and real estate professional. He is a Realtor in the state of California. He is also a best-selling author who has written and published over 300 best-selling books, including The Ultimate Home Buying Guide & Organizer, The Ultimate Home Selling Guide & Organizer, The Ultimate Home Journal & Organizer, the Very Best Home Improvement Guide & Document Organizer, Home Buying Made Easy, Home Selling Made Easy. His books have sold over 5,000,000 copies. Mr. Lluch is a renowned home designer, interior decorator, and home builder. He has also designed, built, decorated, and managed the two most popular short-term rentals in Temecula Wine Country.
           </p>
         </div>
@@ -506,7 +477,7 @@
           class="w-80 h-96 object-cover mb-4 md:mb-0 md:ml-8 rounded-lg shadow-lg" />
         <!-- Left Text -->
         <div class="text-lg leading-relaxed">
-          <h2 class="italic text-black  font-bold text-4xl py-3">Alexander Lluch, Vice President</h2>
+          <h3 class="italic text-black  font-bold text-4xl py-3">Alexander Lluch, Vice President</h3>
           <p>Alexander Lluch, a UCLA economics graduate, brings a wealth of
             experience to the field of Real Estate development, having spent
             years honing his expertise in home design and construction. His
@@ -541,64 +512,13 @@
 
       <div class="w-full max-w-4xl bg-gray-100 p-8 rounded-lg shadow-lg mx-auto">
 
-        <!-- email sent message -->
-        <?php if (isset($_GET['mailsend'])) { ?>
-          <div class="text-green-500 text-center bg-green-100 border border-green-200 px-4 py-3 rounded relative"
-            role="alert">
-            <strong class="font-bold">Message sent successfully!</strong>
-            <span class="block sm:inline">We will get back to you shortly.</span>
-          </div>
-        <?php } ?>
-
-        <h2 class="text-center text-gray-600 mb-8">
-          Send us a message using the form below and someone from our team
-          will get back to you shortly.
-        </h2>
-
-        <form id="contact-form" action="./contact.php" method="POST">
-
-          <input type="hidden" name="page" value="index.php">
-
-          <!-- Name Input -->
-          <div class="mb-4">
-            <input type="text" name="name" id="name" placeholder="Name"
-
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-              required />
-          </div>
-
-          <!-- Phone and Email Input (Side by Side) -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <input type="tel" name="phone" id="phone" placeholder="Phone Number"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-              required />
-            <input type="email" name="email" id="email" placeholder="Email Address"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-              required />
-          </div>
-
-          <!-- Dropdown (General Inquiry) -->
-
-          <!-- Message Input -->
-          <div class="mb-6">
-            <textarea name="message" id="message" placeholder="Message" rows="5"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
-              required></textarea>
-          </div>
-
-          <!-- Submit Button -->
-          <div class="text-center">
-            <button type="submit"
-              name="submit"
-              class="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-950 transition duration-300">
-              SUBMIT
-            </button>
-          </div>
-        </form>
+        <?php require __DIR__ . "/includes/contact-form.php"; ?>
       </div>
     </div>
 
-    <footer class="mt-10 text-center text-gray-600 mb-4">
+  </div>
+</main>
+    <footer role="contentinfo" class="mt-10 text-center text-gray-600 mb-4">
       <p class="text-sm mb-2">Related Links:</p>
       <ul class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:flex-nowrap md:space-x-4 text-sm">
         <li class="w-full md:w-auto">
@@ -654,8 +574,6 @@
       </ul>
     </footer>
 
-  </div>
-
   <!-- Lightbox Modal -->
   <!-- <div class="lightbox" id="lightbox">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
@@ -663,90 +581,13 @@
   </div> -->
 
   <!-- Swiper.js JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-  <script src="./script.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="./lightbox/src/js/lightbox.js"></script>
-
-  <!-- JavaScript to handle Swiper and Lightbox -->
-  <script>
-    // document.getElementById('videoFab').volume = 0.15;
-    // document.getElementById('videoEsc').volume = 0.15;
-
-    // Initialize Swiper
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      spaceBetween: 30,
-      slidesPerView: 1, // Display one image at a time
-    });
-
-    // Initialize Swiper
-    var inspirationSwiper = new Swiper(".inspirationSwiper", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      spaceBetween: 30,
-      breakpoints: {
-        // When the window width is >= 640px (small screen)
-        640: {
-          slidesPerView: 1, // Display 1 image at a time
-        },
-        // When the window width is >= 768px (medium screen)
-        768: {
-          slidesPerView: 2, // Display 2 images at a time
-        },
-        // When the window width is >= 1024px (large screen)
-        1024: {
-          slidesPerView: 3, // Display 3 images at a time
-        },
-      },
-    });
-
-    lightbox.option({
-      'resizeDuration': 50,
-      'wrapAround': true,
-      'alwaysShowNavOnTouchDevices': true,
-      'fadeDuration': 200,
-    });
+  <script src="./accessibility.js"></script>
 
 
 
-    const title = document.getElementById("animatedTitle");
 
-    window.addEventListener("scroll", () => {
-      // Calculate scroll position as a percentage of the viewport height
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const scrollPercentage = scrollTop / windowHeight;
-
-      // Move the title horizontally based on scroll percentage
-      const moveAmount = scrollPercentage * 100; // Adjust the multiplier to control the distance
-      title.style.transform = `translateX(-${moveAmount}vw)`;
-    });
-
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // This makes the scroll smooth,
-      });
-    }
-  </script>
 </body>
 
 </html>

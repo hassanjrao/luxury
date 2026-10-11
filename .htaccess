@@ -1,1 +1,5 @@
 Options -Indexes
+<FilesMatch "^\.git$">
+    Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/(?:tests|docs|\.vscode)(?:/|$)
