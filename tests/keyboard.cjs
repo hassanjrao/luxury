@@ -39,8 +39,8 @@ const {base,root,local,prepare,audit,save}=require('./browser.cjs');
   // Invalid data exercises the real validation handler without delivering mail.
   await page.locator('#phone').fill('5550101234');await page.locator('#email').fill('invalid');await page.locator('#message').fill('Accessibility validation test; no email should be delivered.');
   await page.locator('#contact-form').evaluate(form=>form.noValidate=true);
-  await Promise.all([page.waitForURL(/contacterror/,{waitUntil:'domcontentloaded'}),page.locator('#contact-form').evaluate(form=>HTMLFormElement.prototype.submit.call(form))]);
-  await page.waitForFunction(()=>document.activeElement.id==='contact-errors');assert.equal(await page.locator('#email').getAttribute('aria-invalid'),'true');assert.equal(await page.locator('#name').inputValue(),'Accessibility audit');
+  await Promise.all([page.waitForURL(/contacterror/,{waitUntil:'commit'}),page.locator('#contact-form').evaluate(form=>HTMLFormElement.prototype.submit.call(form))]);
+  await page.waitForFunction(()=>document.activeElement?.id==='contact-errors');assert.equal(await page.locator('#email').getAttribute('aria-invalid'),'true');assert.equal(await page.locator('#name').inputValue(),'Accessibility audit');
   await openAudit('Server form validation error accessibility');check('Server validation announces errors and preserves entered values');
   if(local){
    await page.locator('#email').fill('audit@example.com');

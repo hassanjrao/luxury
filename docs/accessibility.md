@@ -98,3 +98,17 @@ Technical reference: [W3C WCAG overview](https://www.w3.org/WAI/standards-guidel
 2. Add `https://modernluxurybuilders.com` and select the available WCAG 2.2 AA scan. Follow any domain-verification requirements and check the selected plan's page coverage.
 3. Include the homepage and all ten related service/article pages linked in the footer. Test expanded menus, galleries and form-error states where the service supports interactive scans.
 4. Review failures and manual items, rerun after corrections, and save the dated report with the deployed Git revision. A homepage-only automated score does not cover the complete site or its media.
+
+## Every public page: 13 October 2026
+
+The inventory was checked against the local PHP/HTML files, links in the public pages and the production server's files. There are 11 content pages. The homepage alias `/index.php` and the existing `/contact.php` GET redirect were also scanned, giving 13 public URLs. The complete list for an account scan is [public-pages.txt](public-pages.txt).
+
+Actual Lighthouse 13.5.0 accessibility audits scored **100/100 on every URL at both desktop and mobile sizes**: 26 completed audits, minimum 100, no failed accessibility audits and a final HTTP 200 response for every URL. Desktop used 1280 by 900 pixels; mobile used 375 by 812 pixels. No accessibility audit rules were skipped. The contact endpoint's expected redirect produces a Lighthouse redirect warning and resolves to the accessible contact section.
+
+The per-URL desktop and mobile results are recorded in [lighthouse-scores-2026-10-13.csv](lighthouse-scores-2026-10-13.csv). Full Lighthouse JSON reports, `summary.json`, `scores.csv` and a browsable `index.html` are retained locally in `.audit-artifacts/lighthouse-2026-10-13/`. The desktop homepage's initial 45-second load window produced a slow-resource warning; its repeat with a 90-second window scored 100 with no warnings. That complete repeat is retained in `.audit-artifacts/lighthouse-home-90s-2026-10-13/`. These are Lighthouse accessibility scores; an AccessibilityChecker account scan was not performed.
+
+Repeated live axe checks passed all 11 content pages at desktop and mobile sizes: zero violations, script errors, failed resource requests or horizontal overflow. The keyboard audit passed ten behavior checks and four open-state axe audits, covering navigation, the gallery, validation errors and success feedback. Its error-redirect wait now observes the committed navigation and verifies the focused error summary directly; delayed media loading no longer controls that assertion.
+
+Recursive inventory also found the unused bundled Lightbox developer example at `/lightbox/examples/index.html`. It was accidentally reachable and scored 86 before restriction. No production page or script depends on that example directory. A targeted Apache rule now returns HTTP 403 for `/lightbox/examples/` while retaining the actual library assets and the site's photo galleries. Tests, documentation and editor files remain outside the public page inventory.
+
+No new form fields were added. The media and assistive-technology review items above still apply.
