@@ -2,6 +2,14 @@
 
 This work improves the public site toward WCAG 2.2 AA. A zero automated violation count does not establish complete WCAG conformance or ADA compliance. Media accessibility and assistive-technology checks still require review.
 
+## Pa11y CI review — 13 October 2026
+
+The locally installed Pa11y CI 5.0.0 with Pa11y 10.0.0 checked all 13 public requested URLs on desktop and mobile with both HTML_CodeSniffer and axe, using the `WCAG2AA` standard. Warnings and notices were included, and no accessibility audit rule was disabled. These are issue reports, not Lighthouse or AccessibilityChecker scores.
+
+HTML_CodeSniffer flagged the image-only TikTok link because its image had an empty alternative, despite the link's existing accessible label. The image now carries the same descriptive name. Application revision `40d09c1b5982af47db77b94fac1734c5c161314c` was pushed to GitHub and pulled onto production. No form fields were added or changed.
+
+The complete live repeat covered 26 states, all HTTP 200, with zero confirmed errors. It retained 88 warning-level items, 2,930 notices and 42 axe items marked `needsFurtherReview`, including video captions, iframe testing and photo-overlay contrast. Those manual items retain their original reported severity; they are not confirmed violations or completed manual checks. Evidence is `.audit-artifacts/pa11y-2026-10-13/final/report.json`. The [separate public JSON report](https://villafabulosa.com/accessibility/reports/2026-10-13/modern-luxury-builders-pa11y.json) retains every issue's rule, severity, message and selector, excluding private paths and HTML snippets.
+
 ## GitHub and production comparison
 
 The original GitHub revision was `fc6d4e798a721fb4698f2e66dd5a958ab59e0c0f`. The production directory `/home/dh_wdpk6q/modernluxurybuilders.com` initially had no Git checkout.
